@@ -25,12 +25,12 @@ public class CustomWidgetTest {
 	}
 
     @Test
-    public void testClickingCenterOfWidgetSelectsIt() {
+    public void testClickingCenterOfHexagonSelectsOctagon() {
         Point center = getCenterOfWidget();
         MouseEvent event = new MouseEvent(widget, MouseEvent.MOUSE_CLICKED, System.currentTimeMillis(),
                                           0, center.x, center.y, 1, false);
 
         widget.mouseClicked(event);
-        assertFalse(widget.isSelected());
+        assertTrue(widget.isOctagonSelected());
     }
 }

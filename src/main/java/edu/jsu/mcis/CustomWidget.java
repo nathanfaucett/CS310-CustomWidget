@@ -56,7 +56,7 @@ public class CustomWidget extends JPanel implements MouseListener {
         observers.remove(observer);
     }
     private void notifyObservers() {
-        ShapeEvent event = new ShapeEvent(hexagonSelected || octagonSelected);
+        ShapeEvent event = new ShapeEvent(hexagonSelected, octagonSelected);
 
         for(ShapeObserver obs : observers) {
             obs.shapeChanged(event);
@@ -126,13 +126,13 @@ public class CustomWidget extends JPanel implements MouseListener {
 
         if(shape.contains(event.getX(), event.getY())) {
             hexagonSelected = !hexagonSelected;
-            octagonSelected = hexagonSelected == true ? false : octagonSelected;
+            octagonSelected = !hexagonSelected;
             notifyObservers();
         } else {
             shape = getPolygonShape(octagonVertices);
             if(shape.contains(event.getX(), event.getY())) {
                 octagonSelected = !octagonSelected;
-                hexagonSelected = octagonSelected == true ? false : hexagonSelected;
+                hexagonSelected = !octagonSelected;
                 notifyObservers();
             }
         }

@@ -8,17 +8,20 @@ buildscript {
 plugins {
   id 'org.roboscratch.robot' version '0.1.1'
 }
+apply plugin: 'application'
 apply plugin: 'java'
 apply plugin: 'jacoco'
 
 version = '1.0'
 jar {
     manifest {
-        attributes 'Implementation-Title': 'Custom Widget', 
-                   'Implementation-Version': version, 
+        attributes 'Implementation-Title': 'Custom Widget',
+                   'Implementation-Version': version,
                    'Main-Class': 'edu.jsu.mcis.Main'
     }
 }
+
+mainClassName = "edu.jsu.mcis.Main"
 
 task uberjar(type: Jar) {
     manifest.from jar.manifest

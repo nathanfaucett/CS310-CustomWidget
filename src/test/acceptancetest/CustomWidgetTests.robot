@@ -24,6 +24,7 @@ Octagon Is Selected After Center Click
 Widget Is Unchanged After Edge Click
     Start Application       edu.jsu.mcis.Main
     Select Window           Main
+    Click Hexagon Outside
     Click Octagon Outside
     Label Text Should Be    label   Hexagon
     Close Window            Main
